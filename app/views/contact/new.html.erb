@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: LightPink;">
+
+  <div style="background-color: #f0f3f5; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.5); border-radius: 10px; padding: 20px; width: 90%; max-width: 400px;">
+
+    <h1 style="text-align: center;">Contact Form</h1>
+    
+    <%= form_with(model: @contact, url: contact_path, method: :post, local: true, remote: true) do |f| %>
+      <%= csrf_meta_tags %>
+      
+      <label for="contact_name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name</label>
+      <%= f.text_field :name, id: "contact_name", style: "width: 100%; padding: 10px; border: none; background: #f0f3f5; border-radius: 5px; margin-bottom: 15px; box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.1), inset -3px -3px 7px rgba(255, 255, 255, 0.5);" %>
+      
+      <label for="contact_email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email</label>
+      <%= f.text_field :email, id: "contact_email", style: "width: 100%; padding: 10px; border: none; background: #f0f3f5; border-radius: 5px; margin-bottom: 15px; box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.1), inset -3px -3px 7px rgba(255, 255, 255, 0.5);" %>
+      
+      <label for="contact_date" style="display: block; font-weight: bold; margin-bottom: 5px;">Date</label>
+      <%= f.date_field :date, id: "contact_date", style: "width: 100%; padding: 10px; border: none; background: #f0f3f5; border-radius: 5px; margin-bottom: 15px; box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.1), inset -3px -3px 7px rgba(255, 255, 255, 0.5);" %>
+      
+      <%= f.submit "Submit", data: { errors: @contact.errors.any? }, style: "background: LightPink; color: bg-primary; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;" %>
+
+      <%= link_to 'Download Excel', download_excel_path , style: "background: LightPink; color: bg-primary; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease; "%>
+      
+
+    <% end %>
+
+  </div>
+
+  
+</body>
+</html>
