@@ -50,7 +50,7 @@ class ContactController < ApplicationController
     end
   
     
-    worksheet.set_column(0, 0, ) # Set width of the first column (Name) to 20
+    worksheet.set_column(0, 0, 20) # Set width of the first column (Name) to 20
     worksheet.set_column(1, 1, 35) # Set width of the second column (Email) to 30
     worksheet.set_column(2, 2, 20, date_format)
     # Set width of the third column (Date) to 15
